@@ -24,13 +24,26 @@ app.get("/cat/:name", (req, res) => {
     res.send("WELCOME TO A CAT PAGE"); 
 });
 
+/*when you hit a route that matches /comments/<any animal>, the 
+name of that value of the path variable or the value of the key should 
+show up in the text string of the page */ 
+app.get("/comments/:animal", (req, res) => { 
+    let path_variable = req.params; 
+    console.log(path_variable); 
+    res.send("WELCOME TO THE " + req.params.animal.toUpperCase() +  " PAGE"); 
+});
+
 /* when you hit a route that matches this structure 
  the terminal should log an request object of key value pairs
- that are equal to the path variables */  
+ that are equal to the url path */  
 app.get("/:subredditName/comments/:id/:title", (req, res) => { 
     console.log(req.params); 
     res.send("WELCOME TO A COMMENTS PAGE"); 
 }); 
+
+
+
+
 // if you go to any route not predefined in app.js you get a 404 ERROR MESSAGE.
 app.get ("*", (req, res) => { 
     res.send(" 404 ERROR!!!"); 
