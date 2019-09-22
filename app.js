@@ -17,5 +17,12 @@ app.get("/dog", (req, res) => {
     console.log("someone made a request to /dog");
     res.send("dog"); 
 }); 
+// if you go to any route not predefined in app.js you get a 404 ERROR MESSAGE.
+app.get ("*", (req, res) => { 
+    res.send(" 404 ERROR!!!")
+}); 
+
 // to use the route express needs to listen at the requested port 
-app.listen(3000); 
+app.listen(3000, () => { 
+console.log("the server has started"); 
+}); 
