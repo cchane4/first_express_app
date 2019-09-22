@@ -15,12 +15,19 @@ app.get("/bye", (req, res) => {
 should have a message that says "someone made a request to /dog"*/
 app.get("/dog", (req, res) => { 
     console.log("someone made a request to /dog");
-    res.send("dog"); 
+    res.send("dog");
+}); 
+
+/* when you hit any subroute whose main route is cat you will get the 
+welcome to the cat page message */
+app.get("/cat/:name", (req, res) => { 
+    res.send("WELCOME TO A CAT PAGE"); 
 }); 
 // if you go to any route not predefined in app.js you get a 404 ERROR MESSAGE.
 app.get ("*", (req, res) => { 
-    res.send(" 404 ERROR!!!")
+    res.send(" 404 ERROR!!!"); 
 }); 
+
 
 // to use the route express needs to listen at the requested port 
 app.listen(3000, () => { 
