@@ -22,6 +22,14 @@ app.get("/dog", (req, res) => {
 welcome to the cat page message */
 app.get("/cat/:name", (req, res) => { 
     res.send("WELCOME TO A CAT PAGE"); 
+});
+
+/* when you hit a route that matches this structure 
+ the terminal should log an request object of key value pairs
+ that are equal to the path variables */  
+app.get("/:subredditName/comments/:id/:title", (req, res) => { 
+    console.log(req.params); 
+    res.send("WELCOME TO A COMMENTS PAGE"); 
 }); 
 // if you go to any route not predefined in app.js you get a 404 ERROR MESSAGE.
 app.get ("*", (req, res) => { 
